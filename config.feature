@@ -1,23 +1,27 @@
-Feature: Tela de configurar produto   
+#language: pt
+
+Funcionalidade: Tela de configurar produto   
     Como cliente da EBAC-SHOP
     Quero configurar meu produto de acordo com meu tamanho e gosto
     e escolher a quantidade
     Para depois inserir no carrinho
 
-    Background:
-        Given que eu acesse a configurar produto
+    Contexto:
+        Dado que eu acesse a configurar produto
 
-    Scenario: Seleções de cores
-    When eu selecionar uma cor
-    Then tamanho e tamanho e quantidade devem ser obrigatórios
+    Cenário: Seleções de cores
+    Quando eu selecionar uma cor
+    Então tamanho e quantidade devem ser obrigatórios
 
-    Scenario: permição de produtos
-    When eu selecionar 10 produtos
-    Then permitir venda
-    But se passar de 10 produtos
-    Then mensagem de aviso
+    Cenário: permição de produtos
+    Quando eu selecionar 10 produtos
+    Então permitir venda
+    
+    Cenário: permição de produtos inválido
+    Quando passar de 10 produtos
+    Então mensagem de aviso
 
     Scenario: limpar produtos
-    When eu clicar no botão limpar
-    Then deve voltar ao estado original 
+    Quando eu clicar no botão limpar
+    Então deve voltar ao estado original 
 
